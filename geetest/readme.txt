@@ -2,7 +2,7 @@
 === Geetest ===
 Contributors: jazywoo,zhangzhenyu
 Donate link: http://geetest.com/
-Tags: Geetest,comments, spam
+Tags: geetest, gee,极验验证, 验证, 极验, 验证码
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3
