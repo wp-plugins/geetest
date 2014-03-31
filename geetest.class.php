@@ -137,8 +137,6 @@ if(!class_exists("Geetest")){
 
         }
 
-
-
         //==========================样式=================================
         // // todo: make unnecessary
         function register_stylesheets() {
@@ -151,9 +149,23 @@ if(!class_exists("Geetest")){
         function login_geetest_style() {
            $style = <<<STYLE
               <style>
-                 #gt_holder{
+                 .gt_holder{
                     margin-bottom: 20px;
                    }
+                  .gt_ads_holder {
+                    margin-left: 19px;
+                  }
+                  .gt_button_holder {
+                    margin: 5px 24px 0 24px;
+                  }
+                  .gt_info .gt_info_tip {
+                    height: 12px;
+                    width: 216px;
+                    background-position: 0 -443px;
+                  }
+                  .gt_info {
+                    margin-top: 9px;
+                  }
               </style>
 STYLE;
            echo $style;
@@ -161,7 +173,7 @@ STYLE;
         function register_geetest_style() {
            $style = <<<STYLE
               <style>
-                 #gt_holder{
+                 .gt_holder{
                     margin-bottom: 20px;
                    }
               </style>
@@ -181,9 +193,7 @@ STYLE;
         // //处理验证
         function validate_geetest_login($user, $username, $password) {
             // empty so throw the empty response error
-            if (empty($_POST['geetest_response']) || $_POST['geetest_response'] == '') {
-                return  new WP_Error('broke', __("验证未通过"));
-            }
+            
  
             $response = geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
             if (!$response) {
@@ -200,10 +210,7 @@ STYLE;
         //处理验证
         function validate_geetest_register($errors) {
             // empty so throw the empty response error
-            if (empty($_POST['geetest_response']) || $_POST['geetest_response'] == '') {
-                $errors->add('blank_captcha', "<strong>ERROR</strong>: 验证未通过");
-                return $errors;
-            }
+
 
             $response = geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
             if (!$response) {
@@ -252,7 +259,7 @@ OPTS;
                 <script type='text/javascript'>
                     //将验证码显示在comment-submit，提交按钮前面
                     var comment_submit = document.getElementById('comment-submit');
-                    var gt_holder = document.getElementById('gt_holder');
+                    var gt_holder = document.getElementById('geetest_unique_id');
                     comment_submit.parentNode.insertBefore(gt_holder,comment_submit);
                     gt_holder.style.marginTop = "20px";
                     gt_holder.style.marginBottom = "40px";

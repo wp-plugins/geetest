@@ -11,7 +11,7 @@ function geetest_get_html ($pubkey) {
 		die ("To use GeeTest you must get an API key from <a href='http://www.geetest.com/'>http://www.geetest.com/</a>");
 	}
 
-  return '<script type="text/javascript" src="http://api.geetest.com/get.php?gt='.$pubkey.'"></script>';
+  return '<div id="geetest_unique_id"><script type="text/javascript" src="http://api.geetest.com/get.php?gt='.$pubkey.'"></script><div style="clear:both;"></div></div>';
 
 }
 
