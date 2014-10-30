@@ -1,6 +1,6 @@
 ﻿
 === Geetest ===
-Contributors: jazywoo,zhangzhenyu
+Contributors: jazywoo,zhangzhenyu,tanxu
 Donate link: http://geetest.com/
 Tags: geetest, gee,极验验证, 验证, 极验, 验证码
 Requires at least: 3.0.1
