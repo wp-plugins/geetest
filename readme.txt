@@ -46,9 +46,17 @@ bring the Internet "safer, more convenient, more intelligent verification
 = 1.0 =
 * A change since the previous version.
 
+
+= 2.0 =
+* A change since the previous version.
+
+
 == Upgrade Notice ==
 
 = 1.0 =
+A change since the previous version.
+
+= 2.0 =
 A change since the previous version.
 
 
