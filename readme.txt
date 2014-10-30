@@ -15,7 +15,7 @@ Geetest is the world's first next-generation behavior-based authentication ™ t
 
 Geetest is the world's first next-generation behavior-based authentication ™ technology service provider for the people of the world to bring the Internet "safer, more convenient, more intelligent verification" as the goal and continue to move forward. Very experimental verification for the first time put forward the "behavior-based authentication" as a new verification theory, and build a "behavioral sandbox" validation framework, the use of self-developed "multiple acts of discrimination intelligent algorithm" to reach the traditional verification techniques make it difficult to reach the height of the , thus creating a new era of authentication security 2.0.
 
-极验验证是全球首家新一代行为式验证™技术服务提供商，为给互联网世界的人们带去“更安全、更便捷、更具智慧的验证”为目标而不断前行。极验验证首度提出“行为式验证”的全新验证理论，并构建出“行为沙盒”的验证框架，利用自主研发的“多重行为判别智能算法”，达到了令传统验证技术难以到达的高度，至此开创验证安全2.0新时代。
+极验验证是全球首家新一代行为式验证™技术服务提供商，为给互联网世界的人们带去“更安全、更便捷、更具智慧的验证”为目标而不断前行。极验验证首度提出“行为式验证”的全新验证理论，并构建出“行为沙盒”的验证框架，利用自主研发的“多重行为判别智能算法”，达到了令传统验证技术难以到达的高度，至此开创验证安全2.0新时代。赶紧体验吧。
 
 == Installation ==
 
