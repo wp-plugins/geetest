@@ -1,9 +1,5 @@
-
-
 <?php
-
 require_once('geetestlib.php');
-
 if(!class_exists("Geetest")){
     
 	class Geetest{
@@ -11,11 +7,11 @@ if(!class_exists("Geetest")){
 		private $plugin_directory;
 
 		function start_plugin(){
-            $this->plugin_directory = basename(dirname(__FILE__));
-            $this->register_default_options() ;
-            // register the hooks
-            $this->register_actions();
-            $this->register_filters();
+                            $this->plugin_directory = basename(dirname(__FILE__));
+                            $this->register_default_options() ;
+                            // register the hooks
+                            $this->register_actions();
+                            $this->register_filters();
 		}
 
 		function register_actions() {
@@ -156,14 +152,18 @@ STYLE;
         //===========================显示login验证回调函数====================================
         // display geetest
         function show_geetest_in_login($errors) {
-            echo geetest_get_html($this->options['public_key']);
+            $geetestlib = new geetestlib();
+            if ($geetestlib->register($this->options['public_key'])) {
+                echo $geetestlib->geetest_get_html($this->options['public_key']);
+            }
         }
         // //处理验证
         function validate_geetest_login($user) {
             // empty so throw the empty response error
+            $geetestlib = new geetestlib();
+
             
-            
-            $response = geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
+            $response = $geetestlib->geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
             if (!$response) {
                return  new WP_Error('broke', __("验证未通过"));         
             } 
@@ -174,14 +174,18 @@ STYLE;
         //===========================显示registration验证回调函数====================================
         // display geetest
         function show_geetest_in_registration($errors) {
-            echo geetest_get_html($this->options['public_key']);
+            $geetestlib = new geetestlib();
+            if ($geetestlib->register($this->options['public_key'])) {
+                echo $geetestlib->geetest_get_html($this->options['public_key']);
+            }
+            
         }
         //处理验证
         function validate_geetest_register($errors) {
             // empty so throw the empty response error
 
-
-            $response = geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
+            $geetestlib = new geetestlib();
+            $response = $geetestlib->geetest_check_answer($this->options['private_key'], $_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode']);
             if (!$response) {
                 $errors->add('captcha_wrong', "<strong>ERROR</strong>: 验证未通过");                
             }                
@@ -235,7 +239,10 @@ OPTS;
                 </script>
 
 POST;
-                echo $geetest_js_opts . geetest_get_html($this->options['public_key']).$position_geetest;
+            $geetestlib = new geetestlib();
+            if ($geetestlib->register($this->options['public_key'])) {
+                echo $geetest_js_opts.$geetestlib->geetest_get_html($this->options['public_key']).$position_geetest;
+            }
         }
         
       
@@ -248,8 +255,9 @@ POST;
                 $challenge = $_POST['geetest_challenge'];
                 $validate = $_POST['geetest_validate'];
                 $seccode = $_POST['geetest_seccode'];    
+                $geetestlib = new geetestlib();
 
-                $geetest_response = geetest_check_answer($this->options['private_key'], $challenge, $validate, $seccode);
+                $geetest_response = $geetestlib->geetest_check_answer($this->options['private_key'], $challenge, $validate, $seccode);
                 
                 if ($geetest_response) {                        
                     return $comment_data;
@@ -334,5 +342,4 @@ POST;
         //==================================================================================
     }
 }
-
-
+?>
